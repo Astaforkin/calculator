@@ -7,20 +7,12 @@ def calculator(expression):
             try:
                 left, right = expression.split(sign)
                 left, right = int(left), int(right)
-                {
+                return {
                     "+": lambda a, b: a + b,
                     "-": lambda a, b: a - b,
                     "*": lambda a, b: a * b,
                     "/": lambda a, b: a / b,
-                }
-                if sign == "+":
-                    return left + right
-                elif sign == "-":
-                    return left - right
-                elif sign == "/":
-                    return left / right
-                elif sign == "*":
-                    return left * right
+                }[sign](left, right)
             except (ValueError, TypeError):
                 raise ValueError("Выражение должно содержать 2 целых числа и 1 знак")
 
